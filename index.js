@@ -14,11 +14,11 @@ function sendTask() {
         let title, paragraph;
 
         if (firstSpaceIndex !== -1) {
-            // Tomar la primera palabra como título
-            title = msj.substring(0, firstSpaceIndex);
+            // Tomar hasta el segundo espacio como título
+            title = msj.substring(0, msj.indexOf(' ', firstSpaceIndex + 1));
 
             // Tomar el resto como párrafo
-            paragraph = msj.substring(firstSpaceIndex + 1);
+            paragraph = msj.substring(title.length).trim();
         } else {
             // Si solo hay una palabra, tomarla como título y el párrafo queda vacío
             title = msj;
@@ -74,6 +74,9 @@ function sendTask() {
 
         // Añadir el div al contenedor
         tareasContainer.appendChild(newTaskDiv);
+
+        newTaskCheck.style.width = '20px'; // Ajusta el tamaño según tus preferencias
+        newTaskCheck.style.height = '20px';
 
         // Añadir evento de clic al checkbox
         newTaskCheck.addEventListener('change', function () {
