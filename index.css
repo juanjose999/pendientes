@@ -1,0 +1,225 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+body, html{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(4, 8, 21);
+    color: whitesmoke;
+}
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+}
+main section {
+    font-size: 3em;
+}
+main section button {
+    font-size: 0.4em;
+    padding: 2em;
+    border-radius: 0.8rem;
+    border: none;
+}
+/* Estilo para ocultar el checkbox predeterminado */
+.tareasPendientes input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Estilo para el contenedor del checkbox personalizado */
+.tareasPendientes .custom-checkbox-container {
+    position: relative;
+    background: gray;
+    width: 1em;
+    height: 1em;
+    border-radius: 3px; /* Bordes para simular el contorno de un checkbox */
+    display: inline-block;
+    margin-right: 5px; /* Espaciado entre el checkbox y el texto */
+    vertical-align: middle; /* Alineación vertical para centrar en el contenedor */
+}
+
+/* Estilo para el fondo del checkbox personalizado cuando está activo */
+.tareasPendientes .custom-checkbox-container.active {
+    background: rgb(3, 144, 27) !important;
+}
+
+/* Estilo para el checkbox personalizado */
+.tareasPendientes .custom-checkbox-container input[type="checkbox"] {
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Asegurar que el checkbox predeterminado no sea visible */
+    position: absolute;
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el checkbox */
+}
+
+/* Estilo para la línea de completado */
+.tareasPendientes .completado {
+    text-decoration: line-through;
+    color: green;
+}
+
+@media screen and (min-width: 320px) {
+    /* Estilos para teléfonos móviles y pantallas más grandes */
+    body {
+        width: 100%;
+        height: auto;
+        font-size: 0.6em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Agrega más estilos según sea necesario */
+    }
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .title {
+        padding-top: 1.8em;
+        font-size: 1.2em;
+    }
+    .container-input input {
+        width: 100%;
+    }
+    .container-input {
+        padding-top: 0.3em;
+        display: flex;
+        gap: 0.3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container-input button {
+        width: 12em;
+        height: 4em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    input {
+        width: 20em;
+        height: 3em;
+    }
+    #tareasContainer{
+        display: flex;
+        justify-content: center;
+        gap: 0.3em;
+        flex-direction: column;
+    }
+    .tareasPendientes{
+        margin-top: 0.6em;
+    }
+    #tareasContainer {
+        width: 80%;
+        height: fit-content;
+    }
+    #tareasContainer div {
+        background-color: rgba(30, 31, 42, 0.9);
+        padding: 0.4em 0.6em;
+        border-radius: 0.3em;
+        display: inline-block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #tareasContainer div button {
+        margin-left: 2em;
+        position: relative;
+    }
+}
+
+@media screen and (min-width: 320px){
+    /* Estilos para teléfonos móviles y pantallas más grandes */
+    body {
+        width: 100%;
+        height: auto;
+        font-size: 0.6em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Agrega más estilos según sea necesario */
+    }
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .title {
+        padding-top: 1.8em;
+        font-size: 1.2em;
+    }
+    .container-input input {
+        width: 100%;
+    }
+    .container-input {
+        padding-top: 0.3em;
+        display: flex;
+        gap: 0.3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container-input button {
+        width: 12em;
+        height: 4em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    input {
+        width: 20em;
+        height: 3em;
+    }
+    #tareasContainer{
+        display: flex;
+        justify-content: center;
+        gap: 0.3em;
+        flex-direction: column;
+    }
+    .tareasPendientes{
+        margin-top: 0.6em;
+    }
+    #tareasContainer {
+        width: 80%;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #tareasContainer div {
+        background-color: rgba(30, 31, 42, 0.9);
+        padding: 0.4em 0.6em;
+        border-radius: 0.3em;
+        display: inline-block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #tareasContainer div button {
+        margin-left: 2em;
+        position: relative;
+    }
+}
