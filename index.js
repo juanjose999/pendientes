@@ -7,8 +7,27 @@ window.onload = function () {
 };
 
 function sendTask() {
-    let msj = inputTask.value;
-    if (msj.trim() !== '') {
+    let msj = inputTask.value.trim();
+    if (msj !== '') {
+        // Dividir el contenido en título y párrafo
+        let firstSpaceIndex = msj.indexOf(' ');
+        let title, paragraph;
+
+        if (firstSpaceIndex !== -1) {
+            // Tomar la primera palabra como título
+            title = msj.substring(0, firstSpaceIndex);
+
+            // Tomar el resto como párrafo
+            paragraph = msj.substring(firstSpaceIndex + 1);
+        } else {
+            // Si solo hay una palabra, tomarla como título y el párrafo queda vacío
+            title = msj;
+            paragraph = '';
+        }
+
+        // Convertir la primera letra del título a mayúscula
+        title = title.charAt(0).toUpperCase() + title.slice(1);
+
         // Crear div y checkbox elements
         let newTaskDiv = document.createElement('div');
 
@@ -24,8 +43,23 @@ function sendTask() {
         // Agregar el checkbox al contenedor
         customCheckboxContainer.appendChild(newTaskCheck);
 
-        // Establecer el texto del div
-        newTaskDiv.appendChild(document.createTextNode(msj));
+        // Crear un contenedor para el título y el párrafo
+        let titleParagraphContainer = document.createElement('div');
+        titleParagraphContainer.style.display = 'flex';
+        titleParagraphContainer.style.flexDirection = 'column';
+        newTaskDiv.appendChild(titleParagraphContainer);
+
+        // Establecer el título como texto del div con negrita
+        let titleElement = document.createElement('h3');
+        titleElement.style.fontWeight = 'bold'; // Fuente en negrita
+        titleElement.appendChild(document.createTextNode(title.trim()));
+        titleParagraphContainer.appendChild(titleElement);
+
+        // Establecer el párrafo como texto del div con tamaño de fuente menor
+        let paragraphElement = document.createElement('p');
+        paragraphElement.style.fontSize = 'smaller'; // Tamaño de fuente más pequeño
+        paragraphElement.appendChild(document.createTextNode(paragraph.trim()));
+        titleParagraphContainer.appendChild(paragraphElement);
 
         // Añadir botón para eliminar la tarea
         let deleteButton = document.createElement('button');
@@ -66,6 +100,7 @@ function sendTask() {
         saveTasks();
     }
 }
+
 
 // Nueva función para verificar si un checkbox está activo
 function checkIsActive(checkbox) {
